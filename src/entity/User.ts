@@ -1,18 +1,21 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, Column} from "typeorm";
+import { BaseEntity } from "./baseEntity";
 
-@Entity()
-export class User {
+@Entity({ name: 'User'})// posso colocar o nome da tabela como vai ser gerada(opc)
+export class User extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    id: number;
 
-    @Column()
-    firstName: string;
+    @Column({type: 'varchar', length: 100})
+    name: string
 
-    @Column()
-    lastName: string;
+    @Column({type: 'varchar', length: 100})
+    photo: string
 
-    @Column()
-    age: number;
+    @Column({type: 'varchar', length: 100})
+    email: string
 
+    @Column({type: 'varchar', length: 100})
+    isRoot: boolean
+
+  
 }
